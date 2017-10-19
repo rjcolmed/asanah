@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
 
   post '/signup' do
     user = User.new(params)
-    binding.pry
+
     if user.save
       session[:user_id] = user.id
 
@@ -41,7 +41,14 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/sequences' do
-    
+    sequence = Sequence.new(params)
+
+    if sequence.save
+      redirect "sequences/#{sequence.slug}"
+    else
+      redirect 'sequences/new'
+    end
+
   end
 
 end
