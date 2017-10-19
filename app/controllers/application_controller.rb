@@ -51,4 +51,10 @@ class ApplicationController < Sinatra::Base
 
   end
 
+  get '/sequences/:slug' do
+    @sequence = Sequence.find_by_slug(params[:slug])
+
+    erb :'sequences/show'
+  end
+
 end
