@@ -1,7 +1,11 @@
 class SequencesController < ApplicationController
 
   get '/sequences/new' do
-    erb :'sequences/new'
+    if logged_in?
+      erb :'sequences/new'
+    else
+      redirect '/login'
+    end
   end
 
   post '/sequences' do
