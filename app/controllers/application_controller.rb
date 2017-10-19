@@ -19,15 +19,21 @@ class ApplicationController < Sinatra::Base
 
   post '/signup' do
     user = User.new(params)
-    
+    binding.pry
     if user.save
       session[:user_id] = user.id
 
-      redirect '/tweets'
+      redirect "/users/#{user.slug}"
     else
       redirect '/users/signup'
     end
 
+  end
+
+  get '/users/:slug' do
+    @user = User.find_by_slug(params[:slug])
+
+    erb :'users/show'
   end
 
 end
