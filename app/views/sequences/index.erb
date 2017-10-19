@@ -1,4 +1,4 @@
-@sequences.each do |sequence|
-  <p>sequence.name</p>
-  <p>sequence.notes</p>
-end
+<% @sequences.each do |sequence| %>
+  <p>Name:<%= sequence.name %></p>
+  <p>Notes:<%= sequence.notes %></p>
+<% end %>
