@@ -21,4 +21,10 @@ class SequencesController < ApplicationController
 
     erb :'sequences/show'
   end
+
+  get '/sequences/:slug/edit' do
+    @sequence = Sequence.find_by_slug(params[:slug])
+
+    erb :'sequences/edit'
+  end
 end
