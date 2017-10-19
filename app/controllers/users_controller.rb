@@ -21,7 +21,6 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    binding.pry
     user = User.find_by(username: params[:username])
 
     if user && user.authenticate(params[:password])
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
 
       redirect "/users/#{user.slug}"
     else
-      redirect '/users/login'
+      redirect '/login'
     end
   end
 
@@ -37,5 +36,11 @@ class UsersController < ApplicationController
     @user = User.find_by_slug(params[:slug])
 
     erb :'users/show'
+  end
+
+  get '/logout' do
+    session.clear
+
+    redirect '/login'
   end
 end
