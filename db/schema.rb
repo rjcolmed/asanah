@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019155512) do
+ActiveRecord::Schema.define(version: 20171019225727) do
 
   create_table "asanas", force: :cascade do |t|
     t.string "english_name"
@@ -24,11 +24,25 @@ ActiveRecord::Schema.define(version: 20171019155512) do
     t.string "name"
   end
 
+  create_table "sequence_asanas", force: :cascade do |t|
+    t.integer "sequence_id"
+    t.integer "asana_id"
+    t.index ["asana_id"], name: "index_sequence_asanas_on_asana_id"
+    t.index ["sequence_id"], name: "index_sequence_asanas_on_sequence_id"
+  end
+
   create_table "sequences", force: :cascade do |t|
     t.string "name"
     t.text "notes"
     t.integer "user_id"
     t.index ["user_id"], name: "index_sequences_on_user_id"
+  end
+
+  create_table "sequences_asanas", force: :cascade do |t|
+    t.integer "sequence_id"
+    t.integer "asana_id"
+    t.index ["asana_id"], name: "index_sequences_asanas_on_asana_id"
+    t.index ["sequence_id"], name: "index_sequences_asanas_on_sequence_id"
   end
 
   create_table "users", force: :cascade do |t|
