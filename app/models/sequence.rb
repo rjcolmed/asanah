@@ -1,6 +1,7 @@
 class Sequence < ActiveRecord::Base
   belongs_to :user
-  has_many :asanas
+  has_many :sequence_asanas
+  has_many :asanas, through: :sequence_asanas
   validates :name, presence: true
   validates :user_id, presence: true
 
