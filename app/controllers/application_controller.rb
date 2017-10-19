@@ -41,10 +41,11 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/sequences' do
+    binding.pry
     sequence = Sequence.new(params)
 
     if sequence.save
-      redirect "sequences/#{sequence.slug}"
+      redirect "/sequences/#{sequence.slug}"
     else
       redirect 'sequences/new'
     end
