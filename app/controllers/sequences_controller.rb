@@ -5,8 +5,8 @@ class SequencesController < ApplicationController
   end
 
   post '/sequences' do
-    binding.pry
     sequence = Sequence.new(params)
+    sequence.user = User.find(session[:user_id])
 
     if sequence.save
       redirect "/sequences/#{sequence.slug}"
