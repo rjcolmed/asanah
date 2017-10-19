@@ -40,4 +40,8 @@ class ApplicationController < Sinatra::Base
     erb :'sequences/new'
   end
 
+  post '/sequences' do
+    
+  end
+
 end
