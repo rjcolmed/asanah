@@ -36,4 +36,8 @@ class ApplicationController < Sinatra::Base
     erb :'users/show'
   end
 
+  get '/sequences/new' do
+    erb :'sequences/new'
+  end
+
 end
