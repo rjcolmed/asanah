@@ -3,4 +3,12 @@ class Sequence < ActiveRecord::Base
   has_many :asanas
   validates :name, presence: true
   validates :user_id, presence: true
+
+  def slug
+    self.name.downcase.gsub(" ", "-")
+  end
+
+  def self.find_by_slug(slug)
+    self.all.detect { |slug| slug == slug }
+  end
 end
