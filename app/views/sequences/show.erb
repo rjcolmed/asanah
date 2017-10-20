@@ -1,8 +1,14 @@
-<%= @sequence.name %>
-<%= @sequence.notes %>
+<h1><%= @sequence.name %></h1>
+<div>
+  <h3>Notes:</h3>
+  <%= @sequence.notes %>
+</div>
 
+<h3>Your sequence:</h3>
 <% @sequence.asanas.each do |asana| %>
-  <p><%= asana.english_name %></p>
+  <div class="asana">
+    <%= asana.english_name %>
+  </div>
 <% end %>
 
 <a href="/sequences/<%= @sequence.slug %>/edit">Edit</a>
