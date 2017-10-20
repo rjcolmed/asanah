@@ -38,13 +38,6 @@ ActiveRecord::Schema.define(version: 20171019225727) do
     t.index ["user_id"], name: "index_sequences_on_user_id"
   end
 
-  create_table "sequences_asanas", force: :cascade do |t|
-    t.integer "sequence_id"
-    t.integer "asana_id"
-    t.index ["asana_id"], name: "index_sequences_asanas_on_asana_id"
-    t.index ["sequence_id"], name: "index_sequences_asanas_on_sequence_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "first_name"
