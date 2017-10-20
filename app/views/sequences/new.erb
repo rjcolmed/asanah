@@ -19,7 +19,26 @@
 
 Choose from here:
 
-<% @asanas.each do |asana| %>
+<h3>Seated:</h3>
+<% @seated.each do |asana| %>
+  <div class="asana">
+    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+    </input>
+  </div>
+<% end %>
+
+<h3>Standing:</h3>
+<% @standing.each do |asana| %>
+  <div class="asana">
+    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+    </input>
+  </div>
+<% end %>
+
+<h3>Surya Namaskara:</h3>
+<% @surya_namaskara.each do |asana| %>
   <div class="asana">
     <input type="hidden" name="asanas[]" value="<%= asana.id %>">
       <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
