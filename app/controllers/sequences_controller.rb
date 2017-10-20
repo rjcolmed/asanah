@@ -13,8 +13,10 @@ class SequencesController < ApplicationController
 
   get '/sequences/new' do
     if logged_in?
-      @asanas = Asana.all
-      
+      @seated = Asana.find_all_in("seated")
+      @standing = Asana.find_all_in("standing")
+      @surya_namaskara = Asana.find_all_in("surya namaskara")
+
       erb :'sequences/new'
     else
       redirect '/login'
