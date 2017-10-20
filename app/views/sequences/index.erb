@@ -1,4 +1,8 @@
+<h1><%= current_user.first_name %>'s Sequences</h1>
+
 <% @sequences.each do |sequence| %>
-  <p>Name:<%= sequence.name %></p>
-  <p>Notes:<%= sequence.notes %></p>
+  <div>
+    <a href="/sequences/<%= sequence.slug %>"><%= sequence.name %></a>
+    <p>Notes:<%= sequence.notes %></p>
+  </div>
 <% end %>
