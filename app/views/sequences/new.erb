@@ -6,12 +6,23 @@
   <label for="name">Notes</label>
   <textarea id="notes" name="sequence[notes]">Your notes here</textarea>
 
-  <% @asanas.each do |asana| %>
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %></p>
-    </input>
-  <% end %>
+  <label>Your sequence:</label>
+  <div class="usr-sequence">
+    
+  </div>
 
   <button>Submit</button>
 
 </form>
+
+<br></br>
+
+Choose from here:
+
+<% @asanas.each do |asana| %>
+  <div class="asana">
+    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+      <p><%= asana.english_name %></p>
+    </input>
+  </div>
+<% end %>
