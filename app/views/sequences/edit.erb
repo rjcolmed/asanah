@@ -9,6 +9,20 @@
   <label for="name">Notes</label>
   <textarea id="name" name="notes"><%= @sequence.notes %></textarea>
 
+  <h3>Your sequence:</h3>
+  <div class="usr-sequence">
+
+    <% @sequence.asanas.each do |asana| %>
+      <div class="list-asana">
+        <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+          <p><%= asana.english_name %></p>
+        </input>
+      </div>
+    <% end %>
+    
+  </div>
+
+
   <button>Submit</button>
 
 </form>
@@ -17,3 +31,13 @@
 <input type="hidden" id="hidden" name="_method" value="delete">
 <button>Delete</button>
 </form>
+
+<h3>Choose from here:</h3>
+
+<% @asanas.each do |asana| %>
+  <div class="asana">
+    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+      <p><%= asana.english_name %></p>
+    </input>
+  </div>
+<% end %>
