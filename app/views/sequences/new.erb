@@ -22,7 +22,7 @@ Choose from here:
 <% @asanas.each do |asana| %>
   <div class="asana">
     <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %></p>
+      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
     </input>
   </div>
 <% end %>
