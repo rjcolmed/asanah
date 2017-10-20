@@ -1,9 +1,14 @@
 class SequencesController < ApplicationController
 
   get '/sequences' do
-    @sequences = User.find(session[:user_id]).sequences
+    if logged_in?
+      @sequences = current_user.sequences
+      
+      erb :'sequences/index'
+    else
+      redirect '/login'
+    end
     
-    erb :'sequences/index'
   end
 
   get '/sequences/new' do
