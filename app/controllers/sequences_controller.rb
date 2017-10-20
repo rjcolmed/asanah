@@ -16,15 +16,15 @@ class SequencesController < ApplicationController
   end
 
   post '/sequences' do
-    binding.pry
-    # sequence = Sequence.new(params)
-    sequence.user = User.find(session[:user_id])
+    sequence = Sequence.new(params[:sequence])
+    sequence.asana_ids = params[:asanas]
+    sequence.user = current_user
 
-    # if sequence.save
-    #   redirect "/sequences/#{sequence.slug}"
-    # else
-    #   redirect 'sequences/new'
-    # end
+    if sequence.save
+      redirect "/sequences/#{sequence.slug}"
+    else
+      redirect 'sequences/new'
+    end
 
   end
 

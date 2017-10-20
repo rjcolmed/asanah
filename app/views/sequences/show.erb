@@ -1,4 +1,8 @@
 <%= @sequence.name %>
 <%= @sequence.notes %>
 
+<% @sequence.asanas.each do |asana| %>
+  <p><%= asana.english_name %></p>
+<% end %>
+
 <a href="/sequences/<%= @sequence.slug %>/edit">Edit</a>

@@ -8,7 +8,7 @@
 
   <% @asanas.each do |asana| %>
     <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <%= asana.english_name %>
+      <p><%= asana.english_name %></p>
     </input>
   <% end %>
 
