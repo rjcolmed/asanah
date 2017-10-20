@@ -1,10 +1,16 @@
 <form action="/sequences" method="post">
 
   <label for="name">Name</label>
-  <input type="text" id="name" name="name">
+  <input type="text" id="name" name="sequence[name]">
 
   <label for="name">Notes</label>
-  <textarea id="name" name="notes">Your notes here</textarea>
+  <textarea id="notes" name="sequence[notes]">Your notes here</textarea>
+
+  <% @asanas.each do |asana| %>
+    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+      <%= asana.english_name %>
+    </input>
+  <% end %>
 
   <button>Submit</button>
 
