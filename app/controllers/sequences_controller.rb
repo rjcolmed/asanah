@@ -36,6 +36,7 @@ class SequencesController < ApplicationController
 
   get '/sequences/:slug/edit' do
     @sequence = Sequence.find_by_slug(params[:slug])
+    @asanas = Asana.all
 
     erb :'sequences/edit'
   end
