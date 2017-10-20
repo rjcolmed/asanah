@@ -14,6 +14,7 @@ class SequencesController < ApplicationController
   get '/sequences/new' do
     if logged_in?
       @asanas = Asana.all
+      
       erb :'sequences/new'
     else
       redirect '/login'
