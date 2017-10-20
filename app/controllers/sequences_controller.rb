@@ -42,9 +42,11 @@ class SequencesController < ApplicationController
   end
 
   patch '/sequences/:slug/edit' do
+
     sequence = Sequence.find_by_slug(params[:slug])
 
-    sequence.update(name: params[:name], notes: params[:notes])
+    sequence.update(params[:sequence])
+    sequence.asana_ids = params[:asanas]
 
     redirect "/sequences/#{sequence.slug}"
   end
