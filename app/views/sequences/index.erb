@@ -2,3 +2,11 @@
   <p>Name:<%= sequence.name %></p>
   <p>Notes:<%= sequence.notes %></p>
 <% end %>
+
+<% @asanas.each do |asana| %>
+  <div>
+    <p><%= asana.english_name %></p>
+    <p><%= asana.devanagari_name %></p>
+    <p><%= asana.transliterated_name %></p>
+  </div>
+<% end %>
