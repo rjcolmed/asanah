@@ -1,7 +1,6 @@
 class SequencesController < ApplicationController
 
   get '/sequences' do
-    @asanas = Asana.all
     @sequences = User.find(session[:user_id]).sequences
     
     erb :'sequences/index'
@@ -9,6 +8,7 @@ class SequencesController < ApplicationController
 
   get '/sequences/new' do
     if logged_in?
+      @asanas = Asana.all
       erb :'sequences/new'
     else
       redirect '/login'
@@ -16,14 +16,15 @@ class SequencesController < ApplicationController
   end
 
   post '/sequences' do
-    sequence = Sequence.new(params)
+    binding.pry
+    # sequence = Sequence.new(params)
     sequence.user = User.find(session[:user_id])
 
-    if sequence.save
-      redirect "/sequences/#{sequence.slug}"
-    else
-      redirect 'sequences/new'
-    end
+    # if sequence.save
+    #   redirect "/sequences/#{sequence.slug}"
+    # else
+    #   redirect 'sequences/new'
+    # end
 
   end
 
