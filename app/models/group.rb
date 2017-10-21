@@ -1,7 +1,7 @@
 class Group < ActiveRecord::Base
   has_many :asanas
 
-  def make_heading
+  def make_label
     self.name.split(" ").map { |word| word.capitalize }.join(" ")
   end
 
