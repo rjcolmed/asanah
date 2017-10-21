@@ -13,16 +13,18 @@ class SequencesController < ApplicationController
 
   get '/sequences/new' do
     if logged_in?
-      @seated = Asana.find_all_in("seated")
-      @standing = Asana.find_all_in("standing")
-      @supine = Asana.find_all_in("supine")
-      @surya_namaskaras = Asana.find_all_in("surya namaskara")
-      @forward_folds = Asana.find_all_in("forward fold")
-      @backbends = Asana.find_all_in("backbend")
-      @arm_balances = Asana.find_all_in("arm balance")
-      @inversions = Asana.find_all_in("inversion")
-      @meditative = Asana.find_all_in("meditative")
-      @twisting = Asana.find_all_in("twisting")
+      # @seated = Asana.find_all_in("seated")
+      # @standing = Asana.find_all_in("standing")
+      # @supine = Asana.find_all_in("supine")
+      # @surya_namaskaras = Asana.find_all_in("surya namaskara")
+      # @forward_folds = Asana.find_all_in("forward fold")
+      # @backbends = Asana.find_all_in("backbend")
+      # @arm_balances = Asana.find_all_in("arm balance")
+      # @inversions = Asana.find_all_in("inversion")
+      # @meditative = Asana.find_all_in("meditative")
+      # @twisting = Asana.find_all_in("twist")
+
+      @grouped_asanas = Group.all_asanas_by_group
 
       erb :'sequences/new'
     else
