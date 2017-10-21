@@ -4,4 +4,8 @@ class Group < ActiveRecord::Base
   def make_heading
     self.name.split(" ").map { |word| word.capitalize }.join(" ")
   end
+
+  def self.all_asanas_by_group
+    self.all.map { |group| Asana.find_all_in(group.name) }
+  end
 end
