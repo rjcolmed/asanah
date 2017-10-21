@@ -1,8 +1,26 @@
+<div class="ui container">
+
 <h1><%= current_user.first_name %>'s Sequences</h1>
 
-<% @sequences.each do |sequence| %>
-  <div>
-    <a href="/sequences/<%= sequence.slug %>"><%= sequence.name %></a>
-    <p>Notes:<%= sequence.notes %></p>
+  <div class="ui cards">
+    <% @sequences.each do |sequence| %>
+
+      <div class="card">
+        <div class="content">
+          <div class="header"><%= sequence.name %></div>
+          <div class-"description">
+            <p><%= sequence.notes %></p>
+          </div>
+        </div>
+        <div class="ui two bottom attached buttons">
+          <a href="/sequences/<%= sequence.slug %>/edit" class="ui button">Edit</a>
+          <a href="/sequences/<%= sequence.slug %>" class="ui primary button">View</a>
+        </div>
+      </div>
+
+    <% end %>
   </div>
-<% end %>
+
+
+</div>
+
