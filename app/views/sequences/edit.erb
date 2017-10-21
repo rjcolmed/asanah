@@ -1,43 +1,88 @@
+<div class="ui container">
+
 <h1>Edit '<%= @sequence.name %>'</h1>
 
-<form action="/sequences/<%= @sequence.slug %>/edit" method="post">
-<input type="hidden" id="hidden" name="_method" value="patch">
+<div class="two column stackable ui grid">
 
-  <label for="name">Name</label>
-  <input type="text" id="name" name="sequence[name]" value="<%= @sequence.name %>">
+    <div class="column"> <!-- BEGIN column 1A -->
 
-  <label for="name">Notes</label>
-  <textarea id="name" name="sequence[notes]"><%= @sequence.notes %></textarea>
+      <div class="ui grid">
+        <div class="ui secondary vertical pointing menu five wide column"> <!--  BEGIN column 1B -->
+          <% @grouped_asanas.each do |group| %>
+            <% label = group.first.group.make_label %>
+            <div class="item" data-tab="<%= label %>"><%= label %></div>
+          <% end %>
+        </div> <!--  END column 1B -->
 
-  <h3>Your sequence:</h3>
-  <div class="usr-sequence">
+        <div class="eleven wide column"> <!-- BEGIN column 2B -->
+          <!-- generate tab content here -->
+          <% @grouped_asanas.each do |group| %>
+            <div class="ui tab" data-tab="<%= group.first.group.make_label %>">
+              <%  group.each do |asana| %>
+                <div class="ui list">
+                  <div class="item asana">
+                    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+                      <%= asana.english_name %> (<%= asana.devanagari_name %>)
+                    </input>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
 
-    <% @sequence.asanas.each do |asana| %>
-      <div class="list-asana">
-        <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-          <p><%= asana.english_name %></p>
-        </input>
+        </div> <!-- END column 2B -->
+
       </div>
-    <% end %>
-    
+    </div> <!-- END column 1A -->
+
+    <div class="column"> <!-- BEGIN column 2A -->
+
+    <form action="/sequences" method="post">
+      <div class="ui small form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="sequence[name]">
+
+        <label for="name">Notes</label>
+        <textarea id="notes" name="sequence[notes]">Your notes here</textarea>
+      </div>
+      
+
+      <label>Your sequence:</label>
+      <div class="usr-sequence form-size">
+        <!-- user's selected asana appear here -->
+        <% @sequence.asanas.each do |asana| %>
+          <div class="item list-asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <%= asana.english_name %> (<%= asana.devanagari_name %>)
+            </input>
+          </div>
+          <% end %>
+      </div>
+
+      <div class="ui two bottom buttons">
+        <button href="/sequences" class="ui button">Cancel</button>
+        <button class="ui primary button">Save</button>
+      </div>
+    </form>
+
+    </div>
+
   </div>
 
 
-  <button>Submit</button>
 
-</form>
+
+
+
+</div>
+
+
+
+<!--
+<form action="/sequences/<%= @sequence.slug %>/edit" method="post">
+<input type="hidden" id="hidden" name="_method" value="patch">
 
 <form action="/sequences/<%= @sequence.slug %>/delete" method="post">
 <input type="hidden" id="hidden" name="_method" value="delete">
 <button>Delete</button>
-</form>
-
-<h3>Choose from here:</h3>
-
-<% @asanas.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %></p>
-    </input>
-  </div>
-<% end %>
+</form> -->
