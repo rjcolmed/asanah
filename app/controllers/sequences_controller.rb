@@ -42,7 +42,7 @@ class SequencesController < ApplicationController
 
   get '/sequences/:slug/edit' do
     @sequence = Sequence.find_by_slug(params[:slug])
-    @asanas = Asana.all
+    @grouped_asanas = Group.all_asanas_by_group
 
     erb :'sequences/edit'
   end
