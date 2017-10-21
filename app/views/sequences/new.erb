@@ -1,112 +1,129 @@
-<form action="/sequences" method="post">
+<div class="ui container">
 
-  <label for="name">Name</label>
-  <input type="text" id="name" name="sequence[name]">
+  <div class="two column stackable ui grid">
+    <div class="column">
+      <div class="ui grid">
+        <h3>Seated:</h3>
+        <% @seated.each do |asana| %>
+          <div class="asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+            </input>
+          </div>
+        <% end %>
 
-  <label for="name">Notes</label>
-  <textarea id="notes" name="sequence[notes]">Your notes here</textarea>
+        <h3>Standing:</h3>
+        <% @standing.each do |asana| %>
+          <div class="asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+            </input>
+          </div>
+        <% end %>
 
-  <label>Your sequence:</label>
-  <div class="usr-sequence">
+        <h3>Surya Namaskaras</h3>
+        <% @surya_namaskaras.each do |asana| %>
+          <div class="asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+            </input>
+          </div>
+        <% end %>
+
+        <h3>Supine</h3>
+        <% @supine.each do |asana| %>
+          <div class="asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+            </input>
+          </div>
+        <% end %>
+
+        <h3>Forward Folds</h3>
+        <% @forward_folds.each do |asana| %>
+          <div class="asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+            </input>
+          </div>
+        <% end %>
+
+        <h3>Backbends</h3>
+        <% @backbends.each do |asana| %>
+          <div class="asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+            </input>
+          </div>
+        <% end %>
+
+        <h3>Arm Balances</h3>
+        <% @arm_balances.each do |asana| %>
+          <div class="asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+            </input>
+          </div>
+        <% end %>
+
+        <h3>Inversions</h3>
+        <% @inversions.each do |asana| %>
+          <div class="asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+            </input>
+          </div>
+        <% end %>
+
+        <h3>Meditative</h3>
+        <% @meditative.each do |asana| %>
+          <div class="asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+            </input>
+          </div>
+        <% end %>
+
+        <h3>Twisting</h3>
+        <% @twisting.each do |asana| %>
+          <div class="asana">
+            <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+              <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
+            </input>
+          </div>
+        <% end %>
     
+
+      </div>
+        
+    </div>
+
+    <div class="column">
+      <form action="/sequences" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="sequence[name]">
+
+        <label for="name">Notes</label>
+        <textarea id="notes" name="sequence[notes]">Your notes here</textarea>
+
+        <label>Your sequence:</label>
+        <div class="usr-sequence">
+          
+        </div>
+
+        <button>Submit</button>
+
+      </form>
+    </div>
+    
+
   </div>
 
-  <button>Submit</button>
 
-</form>
 
-<br></br>
+  
 
-Choose from here:
+</div>
 
-<h3>Seated:</h3>
-<% @seated.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
-    </input>
-  </div>
-<% end %>
-
-<h3>Standing:</h3>
-<% @standing.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
-    </input>
-  </div>
-<% end %>
-
-<h3>Surya Namaskaras</h3>
-<% @surya_namaskaras.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
-    </input>
-  </div>
-<% end %>
-
-<h3>Supine</h3>
-<% @supine.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
-    </input>
-  </div>
-<% end %>
-
-<h3>Forward Folds</h3>
-<% @forward_folds.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
-    </input>
-  </div>
-<% end %>
-
-<h3>Backbends</h3>
-<% @backbends.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
-    </input>
-  </div>
-<% end %>
-
-<h3>Arm Balances</h3>
-<% @arm_balances.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
-    </input>
-  </div>
-<% end %>
-
-<h3>Inversions</h3>
-<% @inversions.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
-    </input>
-  </div>
-<% end %>
-
-<h3>Meditative</h3>
-<% @meditative.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
-    </input>
-  </div>
-<% end %>
-
-<h3>Twisting</h3>
-<% @twisting.each do |asana| %>
-  <div class="asana">
-    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-      <p><%= asana.english_name %> (<%= asana.devanagari_name %>)</p>
-    </input>
-  </div>
-<% end %>
 
 
