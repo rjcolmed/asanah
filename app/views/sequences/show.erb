@@ -1,14 +1,23 @@
-<h1><%= @sequence.name %></h1>
-<div>
-  <h3>Notes:</h3>
-  <%= @sequence.notes %>
+<div class="ui container">
+
+  <div class="ui padded text container">
+    <h1 class="ui header"><%= @sequence.name %></h2>
+
+    <div>
+
+      <% @sequence.asanas.each do |asana| %>
+        <div class="asana">
+          <%= asana.english_name %> (<%= asana.devanagari_name %>/<%= asana.transliterated_name %>)
+        </div>
+      <% end %>
+    
+    </div>
+
+    <h2 class="ui header">Notes</h2>
+    <p><%= @sequence.notes %></p>
+
+    <a class="fluid ui blue button" href="/sequences/<%= @sequence.slug %>/edit">Edit This Sequence</a>
+  </div>
+
 </div>
 
-<h3>Your sequence:</h3>
-<% @sequence.asanas.each do |asana| %>
-  <div class="asana">
-    <%= asana.english_name %>
-  </div>
-<% end %>
-
-<a href="/sequences/<%= @sequence.slug %>/edit">Edit</a>
