@@ -15,6 +15,6 @@
   font-size: 3rem;
 }
 
-.two.column.stackable.ui.grid {
-  margin: 10px 0 0 0;
+.header {
+  margin-bottom: 20px;
 }
