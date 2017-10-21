@@ -1,8 +1,66 @@
 <div class="ui container">
+  <div class="two column stackable ui grid">
 
-<% @grouped_asanas.each do |group| %>
-  
-<% end %>
+    <div class="column"> <!-- BEGIN column 1A -->
+
+      <div class="ui grid">
+        <div class="ui secondary vertical pointing menu five wide column"> <!--  BEGIN column 1B -->
+          <% @grouped_asanas.each do |group| %>
+            <% label = group.first.group.make_label %>
+            <div class="item" data-tab="<%= label %>"><%= label %></div>
+          <% end %>
+        </div> <!--  END column 1B -->
+
+        <div class="eleven wide column"> <!-- BEGIN column 2B -->
+          <!-- generate tab content here -->
+          <% @grouped_asanas.each do |group| %>
+            <div class="ui tab" data-tab="<%= group.first.group.make_label %>">
+              <%  group.each do |asana| %>
+                <div class="ui list">
+                  <div class="item asana">
+                    <input type="hidden" name="asanas[]" value="<%= asana.id %>">
+                      <%= asana.english_name %> (<%= asana.devanagari_name %>)
+                    </input>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+        </div> <!-- END column 2B -->
+
+      </div>
+    </div> <!-- END column 1A -->
+
+    <div class="column"> <!-- BEGIN column 2A -->
+
+    <form action="/sequences" method="post">
+      <div class="ui small form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="sequence[name]">
+
+        <label for="name">Notes</label>
+        <textarea id="notes" name="sequence[notes]">Your notes here</textarea>
+      </div>
+      
+
+      <label>Your sequence:</label>
+      <div class="usr-sequence">
+        <!-- user's selected asana appear here -->
+      </div>
+
+      <div class="ui two bottom buttons">
+        <button href="/sequences" class="ui button">Cancel</button>
+        <button class="ui primary button">Save</button>
+      </div>
+    </form>
+
+    </div>
+
+  </div>
+
+
+
 
 </div>
 
