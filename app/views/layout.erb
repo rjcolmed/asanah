@@ -4,12 +4,25 @@
 <head>
   <title>āsanāḥ</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+<div class="ui stackable menu">
+  <a id="logo" class="item" href="/">A&#772;sana&#772;&#7717;</a>
+  <a class="item" href="/sequences">Home</a>
+
+    <div class="right menu">
+      <% if logged_in? %>
+        <a class="item">Logged in as <%= current_user.username %></a>
+        <a class= "item" href="/logout">Log Out</a>
+      <% else %>
+        <a class="item" href="/login">Log In</a>
+      <% end %>
+    </div>
+  
+</div>
 
 <body>
-<% if logged_in? %>
-  <a href="/logout">Log Out</a>
-<% end %>
+
   <%= yield %>
 
   <script
