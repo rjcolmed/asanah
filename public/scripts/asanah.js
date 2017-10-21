@@ -13,3 +13,5 @@ $('.usr-sequence').on('click', '.asana', function() {
 $('.list-asana').on('click', function() {
   $(this).remove();
 });
+
+$('.secondary.vertical.pointing.menu .item').tab();
