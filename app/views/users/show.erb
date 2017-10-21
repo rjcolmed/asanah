@@ -1,12 +1,17 @@
 <div class="ui center aligned container">
 
-  <h1>Hi, <%= @user.username %>!</h1>
+  <div class="showcased-content">
 
-  <a href="/sequences/new">New Sequence</a>
+    <h1 id="user-header">Hi, <%= @user.username %>!</h1>
 
-  <a href="/sequences">Your Sequences</a>
+    <a href="/sequences/new" class="ui green button">Create New Sequence</a>
 
-  <a href="/logout">Logout</a>
+    <a href="/sequences" class="ui blue button">View Your Sequences</a>
+
+
+
+  </div>
+
 
 </div>
 
