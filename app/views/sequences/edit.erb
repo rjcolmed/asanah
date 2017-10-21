@@ -1,6 +1,6 @@
 <div class="ui container">
 
-<h1>Edit '<%= @sequence.name %>'</h1>
+<h1>Edit "<%= @sequence.name %>"</h1>
 
 <div class="two column stackable ui grid">
 
@@ -40,10 +40,10 @@
     <form action="/sequences" method="post">
       <div class="ui small form">
         <label for="name">Name</label>
-        <input type="text" id="name" name="sequence[name]">
+        <input type="text" id="name" name="sequence[name]" value="<%= @sequence.name %>">
 
         <label for="name">Notes</label>
-        <textarea id="notes" name="sequence[notes]">Your notes here</textarea>
+        <textarea id="notes" name="sequence[notes]"><%= @sequence.notes %></textarea>
       </div>
       
 
