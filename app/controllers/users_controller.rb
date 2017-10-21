@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
 
+  get '/' do
+    redirect "/users/#{current_user.slug}" if logged_in?
+
+    erb :index
+  end
+
   get '/signup' do
     erb :'users/signup'
   end
