@@ -3,10 +3,14 @@
   min-height: 250px;
   }
 
-#landing-content {
+.showcased-content {
   padding: 150px;
 }
 
 #landing-page-header {
   font-size: 5rem;
+}
+
+#user-header {
+  font-size: 3rem;
 }
