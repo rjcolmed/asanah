@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class SequencesController < ApplicationController
+  use Rack::Flash
 
   get '/sequences' do
     if logged_in?
@@ -28,6 +31,7 @@ class SequencesController < ApplicationController
     end
 
     if sequence.save
+      flash[:message] = "Saved your sequence!"
       redirect "/sequences/#{sequence.slug}"
     else
       redirect 'sequences/new'
