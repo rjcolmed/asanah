@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do
+    redirect "/users/#{current_user.slug}" if logged_in?
+    
     erb :'users/signup'
   end
 
@@ -24,7 +26,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect "/users/#{user.slug}"
+      redirect "/users/#{current_user.slug}"
     else
       erb :'users/login'
     end
