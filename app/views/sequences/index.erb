@@ -1,7 +1,11 @@
 <div class="ui container">
 
 <% if flash.has?(:message) %>
-  <%= flash[:message] %>
+  <div class="ui blue message">
+    <div class="header">
+      <%= flash[:message] %>
+    </div>
+  </div>
 <% end %>
 
 <h1 class="header"><%= current_user.first_name %>'s Sequences</h1>

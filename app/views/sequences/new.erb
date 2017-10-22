@@ -1,7 +1,11 @@
 <div class="ui container">
 
 <% if flash.has?(:message) %>
-  <%= flash[:message] %>
+  <div class="ui negative message">
+    <div class="header">
+      <%= flash[:message] %>
+    </div>
+  </div>
 <% end %>
 
  <h1 class="header">Create New Sequence</h1>
