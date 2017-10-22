@@ -35,6 +35,7 @@ class SequencesController < ApplicationController
 
       redirect "/sequences/#{sequence.slug}"
     else
+      flash[:message] = "You can't save a sequence without a name!"
       redirect 'sequences/new'
     end
 
@@ -91,6 +92,7 @@ class SequencesController < ApplicationController
     if logged_in? && current_user == sequence.user
       sequence.destroy
 
+      flash[:message] = "Your sequence has been deleted!"
       redirect '/sequences'
     else
       redirect '/login'
