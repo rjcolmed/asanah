@@ -1,6 +1,6 @@
 .form-size {
   width: 100%;
-  min-height: 200px;
+  min-height: 125px;
   margin-top: 10px;
   }
 
@@ -19,6 +19,7 @@
 
 .header {
   margin-bottom: 20px;
+  font-size: 3rem;
 }
 
 .ui.form.showcased-content {
