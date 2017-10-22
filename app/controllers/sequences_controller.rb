@@ -81,8 +81,14 @@ class SequencesController < ApplicationController
   delete '/sequences/:slug/delete' do
     sequence = Sequence.find_by_slug(params[:slug])
 
-    sequence.destroy if logged_in? && current_user == sequence.user
+    if logged_in? && current_user == sequence.user
+      sequence.destroy
+
+      redirect '/sequences'
+    else
+      redirect '/login'
+    end
     
-    redirect "/sequences"
   end
+
 end
