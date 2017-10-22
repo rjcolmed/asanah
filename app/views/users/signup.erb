@@ -1,5 +1,13 @@
 <div class="ui container">
 
+  <% if flash && flash.has?(:message) %>
+    <div class="ui negative message">
+      <div class="header">
+        <%= flash[:message] %>
+      </div>
+    </div>
+  <% end %>
+
   <form class="ui form showcased-content" action="/signup" method="post">
     <h1>Sign Up!</h1>
     <div class="field">
