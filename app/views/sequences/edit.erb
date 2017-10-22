@@ -30,6 +30,10 @@
             <% end %>
 
           </div> <!-- END column 2B -->
+           <form action="/sequences/<%= @sequence.slug %>/delete" method="post">
+            <input type="hidden" id="hidden" name="_method" value="delete">
+            <button class="ui red button">Delete</button>
+          </form>
 
         </div>
       </div> <!-- END column 1A -->
@@ -73,14 +77,3 @@
 
 
 </div>
-
-
-
-<!--
-<form action="/sequences/<%= @sequence.slug %>/edit" method="post">
-<input type="hidden" id="hidden" name="_method" value="patch">
-
-<form action="/sequences/<%= @sequence.slug %>/delete" method="post">
-<input type="hidden" id="hidden" name="_method" value="delete">
-<button>Delete</button>
-</form> -->
