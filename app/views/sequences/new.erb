@@ -1,9 +1,10 @@
 <div class="ui container">
 
   <div class="two column stackable ui grid">
+  
     <div class="column"> <!-- BEGIN column 1A -->
     <h1 class="header">New Sequence</h1>
-    
+
       <div class="ui grid">
         <div class="ui secondary vertical pointing menu five wide column"> <!--  BEGIN column 1B -->
           <% @grouped_asanas.each do |group| %>
@@ -35,16 +36,17 @@
 
     <div class="column"> <!-- BEGIN column 2A -->
 
-    <form action="/sequences" method="post">
-      <div class="ui small form">
+    <form class="ui form" action="/sequences" method="post">
+      <div class="field">
         <label for="name">Name</label>
         <input type="text" id="name" name="sequence[name]">
+      </div>
 
+      <div class="field">
         <label for="name">Notes</label>
         <textarea id="notes" name="sequence[notes]">Your notes here</textarea>
       </div>
       
-
       <label>Your sequence:</label>
       <div class="usr-sequence form-size">
         <!-- user's selected asana appear here -->
@@ -59,9 +61,6 @@
     </div>
 
   </div>
-
-
-
 
 </div>
 
