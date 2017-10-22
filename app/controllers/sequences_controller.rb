@@ -22,9 +22,10 @@ class SequencesController < ApplicationController
   end
 
   post '/sequences' do
-    sequence = Sequence.new(params[:sequence])
-    sequence.asana_ids = params[:asanas]
-    sequence.user = current_user
+    sequence = Sequence.new(params[:sequence]).tap do |seq|
+      seq.asana_ids = params[:asanas]
+      seq.user = current_user
+    end
 
     if sequence.save
       redirect "/sequences/#{sequence.slug}"
@@ -35,7 +36,18 @@ class SequencesController < ApplicationController
   end
 
   get '/sequences/:slug' do
-    @sequence = Sequence.find_by_slug(params[:slug])
+    if logged_in?
+      @sequence = Sequence.find_by_slug(params[:slug])
+
+      if @sequence.user == current_user
+        erb :'sequences/show'
+      else
+        redirect "/users/#{current_user.slug}"
+      end
+    else
+      redirect :'/login'
+    end
+
 
     erb :'sequences/show'
   end
