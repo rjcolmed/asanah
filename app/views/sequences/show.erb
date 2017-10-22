@@ -1,4 +1,7 @@
 <div class="ui container">
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 
   <h1 class="header"><%= @sequence.name %></h1>
   <div class="ui padded text container">
