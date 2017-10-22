@@ -44,3 +44,8 @@ label {
 .ui.container h1 {
   text-align: center;
 }
+
+div.container div.message {
+  width: 50%;
+  margin: auto;
+}
