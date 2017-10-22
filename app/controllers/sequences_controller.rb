@@ -32,6 +32,7 @@ class SequencesController < ApplicationController
 
     if sequence.save
       flash[:message] = "Saved your sequence!"
+
       redirect "/sequences/#{sequence.slug}"
     else
       redirect 'sequences/new'
@@ -75,6 +76,8 @@ class SequencesController < ApplicationController
     if logged_in? && current_user == sequence.user
       sequence.update(params[:sequence])
       sequence.tap { |sequence| sequence.asana_ids = params[:asanas] }.save
+
+      flash[:message] = "Your changes have been saved!"
       redirect "/sequences/#{sequence.slug}"
     else
       redirect '/login'
