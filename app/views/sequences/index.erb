@@ -1,5 +1,9 @@
 <div class="ui container">
 
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1 class="header"><%= current_user.first_name %>'s Sequences</h1>
 
   <div class="ui cards">
