@@ -5,9 +5,9 @@ $('.asana').on('click', function() {
 });
 
 // removes asana from user list
-// $('.usr-sequence').on('click', '.asana', function() {
-//   $(this).remove();
-// });
+$('.usr-sequence').on('click', '.asana', function() {
+  $(this).remove();
+});
 
 // removes asanas from user list when editing
 $('.list-asana').on('click', function() {
