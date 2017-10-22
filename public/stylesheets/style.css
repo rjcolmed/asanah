@@ -19,3 +19,8 @@
 .header {
   margin-bottom: 20px;
 }
+
+.ui.form.showcased-content {
+  max-width: 50%;
+  margin: 0 auto;
+}
