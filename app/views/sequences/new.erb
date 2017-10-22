@@ -1,4 +1,9 @@
 <div class="ui container">
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
  <h1 class="header">Create New Sequence</h1>
   <div class="two column stackable ui grid">
  
