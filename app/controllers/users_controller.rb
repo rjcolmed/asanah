@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class UsersController < ApplicationController
+  use Rack::Flash
 
   get '/' do
     redirect "/users/#{current_user.slug}" if logged_in?
@@ -20,7 +23,9 @@ class UsersController < ApplicationController
 
       redirect "/users/#{user.slug}"
     else
-      redirect '/users/signup'
+      flash[:message] = "Couldn't sign you up! Please make sure you fill out all fields."
+      
+      redirect '/signup'
     end
   end
 
