@@ -14,7 +14,6 @@ class Sequence < ActiveRecord::Base
   end
 
   def blurb
-    self.notes[0, 200] + "..."
-    
+    self.notes.size > 200 ? self.notes[0, 200] + "..." : self.notes
   end
 end
