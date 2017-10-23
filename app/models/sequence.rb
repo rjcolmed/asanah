@@ -12,4 +12,8 @@ class Sequence < ActiveRecord::Base
   def self.find_by_slug(slug)
     self.all.detect { |sequence| sequence.slug == slug }
   end
+
+  def blurb
+    self.notes[0, 10]
+  end
 end
