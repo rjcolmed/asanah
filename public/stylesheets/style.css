@@ -1,6 +1,6 @@
 .form-size {
   width: 100%;
-  min-height: 125px;
+  min-height: 300px;
   margin-top: 10px;
   }
 
@@ -43,5 +43,9 @@ label {
 
 div.container div.message {
   width: 50%;
+  margin: auto;
+}
+
+div.card {
   margin: auto;
 }
