@@ -14,6 +14,7 @@ class Sequence < ActiveRecord::Base
   end
 
   def blurb
-    self.notes[0, 10]
+    self.notes[0, 200] + "..."
+    
   end
 end
