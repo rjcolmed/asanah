@@ -14,7 +14,7 @@
 
 #user-header {
   font-size: 3rem;
-  margin-bottom: 100px;
+  margin: 40px 0;
 }
 
 .header {
@@ -31,10 +31,6 @@ form.ui.form.showcased-content h1 {
   font-size: 3rem;
   margin-bottom: 20px;
   text-align: center;
-}
-
-a.ui.massive.green.button {
-  margin-top: 50px;
 }
 
 label {
