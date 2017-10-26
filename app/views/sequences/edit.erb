@@ -20,7 +20,7 @@
                   <div class="ui list">
                     <div class="item asana">
                       <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-                        <%= asana.english_name %> (<%= asana.devanagari_name %>)
+                        <%= asana.english_name %> (<%= asana.transliterated_name %>)
                       </input>
                     </div>
                   </div>
@@ -58,7 +58,7 @@
           <% @sequence.asanas.each do |asana| %>
             <div class="item list-asana">
               <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-                <%= asana.english_name %> (<%= asana.devanagari_name %>)
+                <%= asana.english_name %> (<%= asana.transliterated_name %>)
               </input>
             </div>
             <% end %>
