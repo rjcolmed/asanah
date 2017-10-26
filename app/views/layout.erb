@@ -8,8 +8,11 @@
 </head>
 <div class="ui stackable menu">
   <a id="logo" class="item" href="/">āsanāḥ</a>
-  <a class="item" href="/sequences">Home</a>
-
+  <% if logged_in? %>
+    <a class="item" href="/sequences">Your Sequences</a>
+    <a class="item" href="/sequences/new">New Sequence</a>    
+  <% end %>
+  
     <div class="right menu">
       <% if logged_in? %>
         <a class="item">Logged in as <%= current_user.username %></a>
