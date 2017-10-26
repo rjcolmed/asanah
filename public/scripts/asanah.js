@@ -16,14 +16,4 @@ $('.list-asana').on('click', function() {
 
 $('.secondary.vertical.pointing.menu .item').tab();
 
-$('input[name="display"]').on('change', function() {
-  if ($(this).val() == 'english') {
-    $('div.item.asana').each(function(){
-      this.innerText = '<%= asana.english_name %>';
-    });
-  } else {
-    $('div.item.asana ').each(function(){
-      this.innerText = '<%= asana.transliterated_name %> (<%= asana.devanagari_name %>)';
-    });
-  }
-});
+
