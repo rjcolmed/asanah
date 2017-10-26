@@ -48,11 +48,9 @@
 
         <div class="field">
           <label for="name">Notes</label>
-          <textarea id="notes" name="sequence[notes]"><%= @sequence.notes %></textarea>
+          <textarea rows="3" id="notes" name="sequence[notes]"><%= @sequence.notes %></textarea>
         </div>
         
-
-        <label>Your sequence:</label>
         <div class="usr-sequence form-size">
           <!-- user's selected asana appear here -->
           <% @sequence.asanas.each do |asana| %>
