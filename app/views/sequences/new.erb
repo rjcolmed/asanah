@@ -1,9 +1,5 @@
 <div class="ui container">
 
-<input type="radio" name="display" value="english" checked>Eng</input>
-<input type="radio" name="display" value="translit-deva">Dev</input>
-
-
 <% if flash.has?(:message) %>
   <div class="ui negative message">
     <div class="header">
@@ -33,7 +29,7 @@
                 <div class="ui list">
                   <div class="item asana">
                     <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-                      <%= asana.english_name %>
+                      <%= asana.english_name %> (<%= asana.transliterated_name %>)
                     </input>
                   </div>
                 </div>
