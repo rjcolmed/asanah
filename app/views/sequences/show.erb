@@ -22,7 +22,7 @@
         <div class="asana">
           <div id="english"><%= asana.english_name %></div>
           <div id="translit-devanagari" class="hidden">
-            <%= asana.transliterated_name %> (<%= asana.devanagari_name %>)
+            <span id="transliterated"><%= asana.transliterated_name %></span> (<span id="devanagari"><%= asana.devanagari_name %></span>)
           </div>
         </div>
       <% end %>

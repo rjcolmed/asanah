@@ -62,3 +62,7 @@ div.card {
 .ui.toggle.checkbox {
   margin-left: 50px;
 }
+
+#english, #transliterated {
+  font-weight: bold;
+}
