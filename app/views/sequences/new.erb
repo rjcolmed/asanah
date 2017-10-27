@@ -1,3 +1,6 @@
+<input type="radio" name="display" data-section="#english" checked>English
+<input type="radio" name="display" data-section="#translit-devanagari">Sanskrit
+
 <div class="ui container">
 
 <% if flash.has?(:message) %>
@@ -29,7 +32,10 @@
                 <div class="ui list">
                   <div class="item asana">
                     <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-                      <%= asana.english_name %> (<%= asana.transliterated_name %>)
+                      <div id="english"><%= asana.english_name %></div>
+                      <div id="translit-devanagari" class="hidden">
+                        <%= asana.transliterated_name %><br>(<%= asana.devanagari_name %>)
+                      </div>
                     </input>
                   </div>
                 </div>
