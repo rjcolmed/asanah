@@ -58,3 +58,7 @@ div.card {
 .hidden {
   display: none;
 }
+
+.ui.toggle.checkbox {
+  margin-left: 50px;
+}
