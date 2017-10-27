@@ -18,7 +18,7 @@ $('.list-asana').on('click', function() {
 $('.secondary.vertical.pointing.menu .item').tab();
 
 // allows user to toggle between displaying asana names in english and sanskrit
-$('input[type="radio"]').on('change', function(){
+$('input[type="checkbox"]').on('change', function(){
 
       $('div#english').toggleClass('hidden')
       $('div#translit-devanagari').toggleClass('hidden')
