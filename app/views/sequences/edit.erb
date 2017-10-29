@@ -27,7 +27,7 @@
                       <input type="hidden" name="asanas[]" value="<%= asana.id %>">
                         <div id="english"><%= asana.english_name %></div>
                         <div id="translit-devanagari" class="hidden">
-                          <span id="transliterated"><%= asana.transliterated_name %></span><br>(<span id="devanagari"><%= asana.devanagari_name %></span>)
+                          <span id="transliterated"><%= asana.transliterated_name %></span> (<span id="devanagari"><%= asana.devanagari_name %></span>)
                         </div>
                       </input>
                     </div>
@@ -64,7 +64,10 @@
           <% @sequence.asanas.each do |asana| %>
             <div class="item list-asana">
               <input type="hidden" name="asanas[]" value="<%= asana.id %>">
-                <%= asana.english_name %> (<%= asana.transliterated_name %>)
+                 <div id="english"><%= asana.english_name %></div>
+                  <div id="translit-devanagari" class="hidden">
+                    <span id="transliterated"><%= asana.transliterated_name %></span> (<span id="devanagari"><%= asana.devanagari_name %></span>)
+                  </div>
               </input>
             </div>
             <% end %>
